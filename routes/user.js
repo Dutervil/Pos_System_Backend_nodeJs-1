@@ -128,7 +128,7 @@ router.post('/changePassword',auth.authenticationToken,(req,res)=>{
              return res.status(400).json({message:"Incorrect old password"})
          }else if (results[0].password== user.oldPassword){
             var sql="Update user set password=? where email=?";
-            connection.query(sql,[user.oldPassword,email],(err,results)=>{
+            connection.query(sql,[user.newPassword,email],(err,results)=>{
                 if (!err){
                     return res.status(200).json({message:"Password update successfully"})
                 }else{
