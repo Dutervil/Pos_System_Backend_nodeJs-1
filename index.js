@@ -5,11 +5,13 @@ const userRoute = require('./routes/user')
 const categoryRoute = require('./routes/category')
 const productRoute= require('./routes/product')
 const billRoute= require('./routes/bill')
-const dashboardRoute= require('./routes/dasbboard')
+const dashboardRoute= require('./routes/dasbboard');
+const compression = require("compression");
 const app = express();
 
 
-app.use(cors({origin:"*"}));
+app.use(cors());
+app.use(compression)
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.listen(process.env.PORT, () => {
